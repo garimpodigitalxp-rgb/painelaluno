@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Zona de Ação - Conteúdo Online</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header h2 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            font-size: 3.5rem;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        
+        .intro {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .intro p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .tab-container {
+            margin-bottom: 20px;
+        }
+        
+        .tabs {
+            display: flex;
+            list-style-type: none;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            flex-wrap: wrap;
+        }
+        
+        .tabs li {
+            flex: 1;
+            text-align: center;
+            min-width: 120px;
+        }
+        
+        .tabs li a {
+            display: block;
+            padding: 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .tabs li a.active {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+        }
+        
+        .tabs li a:hover:not(.active) {
+            background: #eef4ff;
+        }
+        
+        .module-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .module-title {
+            color: #6a11cb;
+            border-bottom: 2px solid #6a11cb;
+            padding-bottom: 10px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .module-title i {
+            margin-right: 10px;
+        }
+        
+        .lesson {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f9f9ff;
+            border-radius: 10px;
+            border-left: 4px solid #6a11cb;
+        }
+        
+        .lesson h3 {
+            color: #2575fc;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .lesson h3 i {
+            margin-right: 10px;
+        }
+        
+        .key-point {
+            background: #eef4ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .key-point h4 {
+            color: #6a11cb;
+            margin-bottom: 10px;
+        }
+        
+        .action-box {
+            background: #6a11cb;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+        
+        .action-box h4 {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .action-box h4 i {
+            margin-right: 10px;
+        }
+        
+        .progress-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background: #eef4ff;
+            border-radius: 5px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            border-radius: 5px;
+            width: 0%;
+            transition: width 1s ease;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #2575fc;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #6a11cb;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #777;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .completed {
+            color: #0ba360;
+            margin-left: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .header h2 {
+                font-size: 1.2rem;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Zona de Ação</h1>
+        <h2>O Método Prático para Tirar Seus Projetos do Papel</h2>
+        <div class="logo">ZA</div>
+        <p>Conteúdo Online Completo</p>
+    </div>
+    
+    <div class="intro">
+        <p>Este curso foi desenvolvido para ajudá-lo a sair da paralisia e transformar suas ideias em ação consistente.</p>
+        <p>Abaixo você encontrará todos os módulos e aulas do curso. Marque as lições conforme for concluindo para acompanhar seu progresso.</p>
+    </div>
+    
+    <div class="progress-container">
+        <h3>Seu Progresso no Curso: <span id="progress-percentage">0%</span></h3>
+        <div class="progress-bar">
+            <div class="progress" id="progress-bar"></div>
+        </div>
+        <p>Lições concluídas: <span id="completed-lessons">0</span> de <span id="total-lessons">0</span></p>
+    </div>
+
+    <div class="tab-container">
+        <ul class="tabs">
+            <li><a href="#" class="tab-link active" data-tab="mod1"><i class="fas fa-home"></i> Módulo 1</a></li>
+            <li><a href="#" class="tab-link" data-tab="mod2"><i class="fas fa-project-diagram"></i> Módulo 2</a></li>
+            <li><a href="#" class="tab-link" data-tab="mod3"><i class="fas fa-running"></i> Módulo 3</a></li>
+            <li><a href="#" class="tab-link" data-tab="mod4"><i class="fas fa-mountain"></i> Módulo 4</a></li>
+        </ul>
+    </div>
+
+    <!-- MÓDULO 1 -->
+    <div id="mod1" class="tab-content active">
+        <div class="module-container">
+            <h2 class="module-title"><i class="fas fa-home"></i> Módulo 1: A Base - Entendendo e Quebrando a Inércia</h2>
+            <p>Este módulo foi desenvolvido para ajudá-lo a identificar as causas-raiz da paralisia e construir uma nova mentalidade propícia para a ação.</p>
+            
+            <!-- Aula 1.1 -->
+            <div class="lesson">
+                <h3><i class="fas fa-brain"></i> Aula 1.1: A Psicologia do Comodismo <span class="completed" id="mod1-lesson1"><i class="far fa-check-circle"></i></span></h3>
+                <p>Por Que Seu Cérebro Sabota Seus Planos.</p>
+                
+                <div class="key-point">
+                    <h4>O Cérebro Primário</h4>
+                    <p>Seu cérebro tem um objetivo primário: mantê-lo vivo e seguro. Para ele, "seguro" é sinônimo de "conhecido". Tudo que é novo é interpretado como uma ameaça.</p>
+                </div>
+                
+                <div class="key-point">
+                    <h4>Mecanismos de Luta ou Fuga</h4>
+                    <p>Seu cérebro ativa os mesmos mecanismos de luta ou fuga diante de novos projetos. Por isso você sente ansiedade e aquela vontade de procrastinar.</p>
+                </div>
+                
+                <div class="action-box">
+                    <h4><i class="fas fa-tasks"></i> Exercício Prático</h4>
+                    <p>Identifique 3 situações em que sentiu aquela "vontade" de procrastinar. Anote o que estava prestes a fazer e como se sentiu.</p>
+                    <button class="btn complete-btn" data-module="1" data-lesson="1">Marcar como concluída</button>
+                </div>
+            </div>
+            
+            <!-- Aula 1.2 -->
+            <div class="lesson">
+                <h3><i class="fas fa-search"></i> Aula 1.2: Autodiagnóstico <span class="completed" id="mod1-lesson2"><i class="far fa-check-circle"></i></span></h3>
+                <p>Identificando Seus "Monstros" Pessoais (Medo, Perfeccionismo, Autossabotagem).</p>
+                
+                <div class="key-point">
+                    <h4>Os Três Monstros Principais</h4>
+                    <p>1. Medo do fracasso ou do julgamento<br>
+                    2. Perfeccionismo (tudo ou nada)<br>
+                    3. Autossabotagem (não me mereço o sucesso)</p>
+                </div>
+                
+                <div class="action-box">
+                    <h4><i class="fas fa-tasks"></i> Questionário de Autodiagnóstico</h4>
+                    <p>Responda com sinceridade:<br>
+                    - Você evita começar por medo de não fazer perfeito?<br>
+                    - Adia projetos por achar que "não é a hora ideal"?<br>
+                    - Sente que não merece ter sucesso?</p>
+                    <button class="btn complete-btn" data-module="1" data-lesson="2">Marcar como concluída</button>
+                </div>
+            </div>
+            
+            <!-- Aula 1.3 -->
+            <div class="lesson">
+                <h3><i class="fas fa-anchor"></i> Aula 1.3: O Exercício da Âncora Mental <span class="completed" id="mod1-lesson3"><i class="far fa-check-circle"></i></span></h3>
+                <p>Técnica para reprogramar crenças limitantes em 5 minutos.</p>
+                
+                <div class="key-point">
+                    <h4>Passo a Passo da Âncora Mental</h4>
+                    <p>1. Identifique a crença limitante (ex: "não sou bom o suficiente")<br>
+                    2. Crie uma afirmação positiva (ex: "estou me tornando melhor a cada dia")<br>
+                    3. Associe essa afirmação a um gesto físico (ex: tocar o polegar e indicador)<br>
+                    4. Repita por 21 dias para criar novas conexões neurais</p>
+                </div>
+                
+                <div class="action-box">
+                    <h4><i class="fas fa-tasks"></i> Prática Guiada</h4>
+                    <p>Escolha UMA crença limitante que mais te atrapalha. Crie uma afirmação positiva oposta. Pratique agora: feche os olhos, repita a afirmação 3 vezes enquanto faz o gesto escolhido.</p>
+                    <button class="btn complete-btn" data-module="1" data-lesson="3">Marcar como concluída</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MÓDULO 2 -->
+    <div id="mod2" class="tab-content">
+        <div class="module-container">
+            <h2 class="module-title"><i class="fas fa-project-diagram"></i> Módulo 2: O Plano - Estratégias para Iniciar com Clareza e Confiança</h2>
+            <p>Este módulo foi desenvolvido para transformar suas ideias abstratas em planos de ação tangíveis e não assustadores.</p>
+            
+            <!-- Aula 2.1 -->
+            <div class="lesson">
+                <h3><i class="fas fa-bullseye"></i> Aula 2.1: Da Ideia à Meta <span class="completed" id="mod2-lesson1"><i class="far fa-check-circle"></i></span></h3>
+                <p>Como Quebrar um Sonho Gigante em Micro-Ações Executáveis.</p>
+                
+                <div class="key-point">
+                    <h4>O Problema dos Grandes Objetivos</h4>
+                    <p>Grandes objetivos são paralisantes porque não temos clareza sobre o primeiro passo. Nosso cérebro fica sobrecarregado com a complexidade e preferimos adiar.</p>
+                </div>
+                
+                <div class="key-point">
+                    <h4>Método de Quebra em Micro-Ações</h4>
+                    <p>1. Defina o objetivo final claramente<br>
+                    2. Liste os principais marcos para chegar lá<br>
+                    3. Quebre cada marco em tarefas<br>
+                    4. Quebre cada tarefa em ações menores (de 15-30 min)<br>
+                    5. Priorize as ações mais importantes</p>
+                </div>
+                
+                <div class="action-box">
+                    <h4><i class="fas fa-tasks"></i> Exercício Prático: A Árvore de Ações</h4>
+                    <p>Escolha um projeto seu e crie uma "árvore" onde o tronco é o objetivo final, os galhos são os marcos e as folhas são as micro-ações. Identifique as 3 micro-ações mais importantes para começar.</p>
+                    <button class="btn complete-btn" data-module="2" data-lesson="1">Marcar como concluída</button>
+                </div>
+            </div>
+            
+            <!-- Aula 2.2 -->
+            <div class="lesson">
+                <h3><i class="fas fa-star"></i> Aula 2.2: O Poder do MVP Pessoal <span class="completed" id="mod2-lesson2"><i class="far fa-check-circle"></i></span></h3>
+                <p>Como começar bem, sem precisar começar perfeito.</p>
+                
+                <div class="key-point">
+                    <h4>O que é um MVP (Minimum Viable Product)?</h4>
+                    <p>MVP é um conceito do mundo startups que significa "Produto Minimamente Viável". É a versão mais simples possível do seu projeto que ainda entrega valor. Aplicado pessoalmente, significa focar no essencial primeiro.</p>
+                </div>
+                
+                <div class="key-point">
+                    <h4>Por que o MVP é tão eficaz?</h4>
+                    <p>1. Reduz a pressão da perfeição<br>
+                    2. Permite começar rapidamente<br>
+                    3. Gera aprendizado real desde o início<br>
+                    4. Cria momentum psicológico<br>
+                    5. Evita o desperdício de tempo em detalhes irrelevantes no início</p>
+                </div>
+                
+                <div class="action-box">
+                    <h4><i class="fas fa-tasks"></i> Exercício: Definindo seu MVP</h4>
+                    <p>Para seu projeto atual: qual é a versão mais simples possível que ainda seria válida? Qual é o núcleo essencial que precisa ser feito primeiro? Escreva claramente o que compõe seu MVP.</p>
+                    <button class="btn complete-btn" data-module="2" data-lesson="2">Marcar como concluída</button>
+                </div>
+            </div>
+            
+            <!-- Aula 2.3 -->
+            <div class="lesson">
+                <h3><i class="fas fa-map-marked-alt"></i> Aula 2.3: Workshop de Planejamento <span class="completed" id="mod2-lesson3"><i class="far fa-check-circle"></i></span></h3>
+                <p>Construindo seu Mapa de Ação de 30 Dias.</p>
+                
+                <div class="key-point">
+                    <h4>Os 4 Pilares de um Bom Plano de 30 Dias</h4>
+                    <p>1. <strong>Específico:</strong> Ações claras e mensuráveis<br>
+                    2. <strong>Realista:</strong> Adaptado ao seu tempo e energia disponíveis<br>
+                    3. <strong>Flexível:</strong> Com espaço para imprevistos<br>
+                    4. <strong>Motivador:</strong> Inclui recompensas e celebrações</p>
+                </div>
+                
+                <div class="key-point">
+                    <h4>Template do Mapa de Ação</h4>
+                    <p>• <strong>Visão do Mês:</strong> O que espera alcançar em 30 dias?<br>
+                    • <strong>Marcos Semanais:</strong> 4-5 marcos importantes<br>
+                    • <strong>Tarefas Prioritárias:</strong> Lista de tarefas essenciais<br>
+                    • <strong>Planejamento Semanal:</strong> Alocação de tarefas por semana<br>
+                    • <strong>Check-ins:</strong> Momentos de revisão (a cada 7 dias)<br>
+                    • <strong>Sistema de Recompensas:</strong> Como celebrar progressos</p>
+                </div>
+                
+                <div class="action-box">
+                    <h4><i class="fas fa-tasks"></i> Exercício: Criando seu Mapa</h4>
+                    <p>Use o template acima para criar seu Mapa de Ação de 30 Dias. Seja detalhado mas não rígido demais. Lembre-se: o plano é um guia, não uma camisa de força.</p>
+                    <button class="btn complete-btn" data-module="2" data-lesson="3">Marcar como concluída</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MÓDULO 3 -->
+    <div id="mod3" class="tab-content">
+        <div class="module-container">
+            <h2 class="module-title"><i class="fas fa-running"></i> Módulo 3: A Execução - Construindo o Hábito de Agir Todos os Dias</h2>
+            <p>Este módulo foi desenvolvido para ajudá-lo a desenvolver a disciplina e a consistência necessárias para manter o momentum e transformar ação em hábito.</p>
+            
+            <!-- Aula 3.1 -->
+            <div class="lesson">
+                <h3><i class="fas fa-hourglass-start"></i> Aula 3.1: A Regra dos 2 Minutos <span class="completed" id="mod3-lesson1"><i class="far fa-check-circle"></i></span></h3>
+                <p>Como vencer a procrastinação iniciando tarefas de forma quase irrelevante.</p>
+                
+                <div class="key-point">
+                    <h4>O Segredo da Regra dos 2 Minutos</h4>
+                    <p>A resistência para iniciar uma tarefa é quase sempre maior do que a dificuldade da própria tarefa. A Regra dos 2 Minutos supera essa resistência tornando o início tão fácil que é quase impossível não fazer.</p>
+                </div>
+                
+                <div class="key-point">
+                    <h4>Como Aplicar a Regra</h4>
+                    <p>1. <strong>Versão 1:</strong> Se uma tarefa leva menos de 2 minutos, faça agora<br>
+                    2. <strong>Versão 2:</strong> Para tarefas grandes, comprometa-se com apenas 2 minutos da atividade<br>
+                    3. <strong>Versão 3:</strong> Use os 2 minutos como ritual de iniciação para criar momentum</p>
+                </div>
+                
+                <div class="action-box">
+                    <h4><i class="fas fa-tasks"></i> Desafio dos 2 Minutos</h4>
+                    <p>Escolha a tarefa que mais tem procrastinado. Comprometa-se a fazer apenas 2 minutos dela agora. Observe como frequentemente você continua após os 2 minutos.</p>
+                    <button class="btn complete-btn" data-module="3" data-lesson="1">Marcar como concluída</button>
+                </div>
+            </div>
+            
+            <!-- Aula 3.2 -->
+            <div class="lesson">
+                <h3><i class="fas fa-battery-full"></i> Aula 3.2: Gestão de Energia vs. Gestão de Tempo <span class="completed" id="mod3-lesson2"><i class="far fa-check-circle"></i></span></h3>
+                <p>Como trabalhar nos horários certos para sua mente e corpo.</p>
+                
+                <div class="key-point">
+                    <h4>Por que Gerir Energia e Não Apenas Tempo?</h4>
+                    <p>Você pode ter todo o tempo do mundo, mas sem energia não realizará nada significativo. A produtividade real vem da alinhamento entre suas tarefas e seus níveis de energia naturais.</p>
+                </div>
+                
+                <div class="key-point">
+                    <h4>Identificando Seus Picos de Energia</h4>
+                    <p>1. <strong>Observe por 3 dias:</strong> Quando você se sente mais alerta e focado?<br>
+                    2. <strong>Tipos de energia:</strong> Mental, física, emocional e criativa<br>
+                    3. <strong>Padrões circadianos:</strong> Cada pessoa tem ritmos biológicos diferentes<br>
+                    4. <strong>Atividades energizantes vs. drenantes:</strong> Liste o que te dá energia e o que consome</p>
+                </div>
+                
+                <div class="action-box">
+                    <h4><i class="fas fa-tasks"></i> Exercício: Mapeamento de Energia</h4>
+                    <p>Por 3 dias, registre a cada hora seu nível de energia (1-10) e estado mental. Identifique padrões e redesigne sua agenda para alinhar tarefas com seus picos naturais de energia.</p>
+                    <button class="btn complete-btn" data-module="3" data-lesson="2">Marcar como concluída</button>
+                </div>
+            </div>
+            
+            <!-- Aula 3.3 -->
+            <div class="lesson">
+                <h3><i class="fas fa-calendar-check"></i> Aula 3.3: O Sistema do "Não-Zero Day" <span class="completed" id="mod3-lesson3"><i class="far fa-check-circle"></i></span></h3>
+                <p>Implementando um rastreador de progresso diário infalível.</p>
+                
+                <div class="key-point">
+                    <h4>A Filosofia do Não-Zero Day</h4>
+                    <p>Um "Não-Zero Day" é qualquer dia em que você faz pelo menos uma pequena ação em direção ao seu objetivo. O poder está na consistência, não na intensidade.</p>
+                </div>
+                
+                <div class="key-point">
+                    <h4>Como o Sistema Funciona</h4>
+                    <p>1. <strong>Defina sua ação mínima:</strong> O menor passo possível em direção à sua meta<br>
+                    2. <strong>Comprometa-se publicamente:</strong> Use um tracker visível ou app<br>
+                    3. <strong>Celebre pequenas vitórias:</strong> Reconheça cada Não-Zero Day<br>
+                    4. <strong>Não quebre a corrente:</strong> Mantenha sequências de dias produtivos<br>
+                    5. <strong>Reinicie sem julgamento:</strong> Se quebrar a sequência, comece de novo</p>
+                </div>
+                
+                <div class="action-box">
+                    <h4><i class="fas fa-tasks"></i> Exercício: Configurando seu Sistema</h4>
+                    <p>Escolha um método de tracking (app, calendário físico, planilha). Defina sua ação mínima diária para cada projeto importante. Comece hoje e mantenha por 7 dias consecutivos.</p>
+                    <button class="btn complete-btn" data-module="3" data-lesson="3">Marcar como concluída</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MÓDULO 4 -->
+    <div id="mod4" class="tab-content">
+        <div class="module-container">
+            <h2 class="module-title"><i class="fas fa-mountain"></i> Módulo 4: A Manutenção - Como Permanecer Produtivo e Superar Obstáculos</h2>
+            <p>Este módulo foi desenvolvido para ajudá-lo a criar resiliência e estratégias para lidar com recaídas e manter a produtividade a longo prazo.</p>
+            
+            <!-- Aula 4.1 -->
+            <div class="lesson">
+                <h3><i class="fas fa-redo"></i> Aula 4.1: Lidando com a Fadiga e o Fracasso <span class="completed" id="mod4-lesson1"><i class="far fa-check-circle"></i></span></h3>
+                <p>Estratégias para recomeçar depois de um dia (ou semana) ruim.</p>
+                
+                <div class="key-point">
+                    <h4>Reenquadrando o "Fracasso"</h4>
+                    <p>Dias ruins e recaídas não são fracassos, são dados valiosos. Eles mostram onde seu sistema atual tem brechas e onde você precisa criar mais resiliência.</p>
+                </div>
+                
+                <div class="key-point">
+                    <h4>O Protocolo de Recomeço Rápido</h4>
+                    <p>1. <strong>Autocompaixão:</strong> Substitua a autocrítica por curiosidade<br>
+                    2. <strong>Análise sem julgamento:</strong> O que realmente aconteceu?<br>
+                    3. <strong>Extraia aprendizados:</strong> O que isso me ensina?<br>
+                    4. <strong>Ajuste o sistema:</strong> Que proteções posso criar?<br>
+                    5. <strong>Recomece imediatamente:</strong> Não esque "segunda-feira"</p>
+                </div>
+                
+                <div class="action-box">
+                    <h4><i class="fas fa-tasks"></i> Exercício: Criando seu Kit de Recomeço</h4>
+                    <p>Desenvolva um protocolo pessoal para dias difíceis. Inclua: uma frase de autocompaixão, uma micro-ação de recomeço, um ritual de transição e uma pergunta para extrair aprendizado.</p>
+                    <button class="btn complete-btn" data-module="4" data-lesson="1">Marcar como concluída</button>
+                </div>
+            </div>
+            
+            <!-- Aula 4.2 -->
+            <div class="lesson">
+                <h3><i class="fas fa-couch"></i> Aula 4.2: A Arte do Reabastecimento <span class="completed" id="mod4-lesson2"><i class="far fa-check-circle"></i></span></h3>
+                <p>Por que pausas estratégicas são combustível para a produtividade.</p>
+                
+                <div class="key-point">
+                    <h4>O Mito do "Sempre Produtivo"</h4>
+                    <p>Produtividade sustentável não é sobre trabalhar sempre, mas sobre trabalhar inteligentemente. Períodos deliberados de descanso não são perda de tempo - são investimento em energia futura.</p>
+                </div>
+                
+                <div class="key-point">
+                    <h4>Tipos de Reabastecimento</h4>
+                    <p>1. <strong>Micro-pausas:</strong> 5-10 minutos a cada hora de trabalho focado<br>
+                    2. <strong>Pausas de restauração:</strong> 20-30 minutos para atividades verdadeiramente revigorantes<br>
+                    3. <strong>Dias de recuperação:</strong> Um dia por semana com trabalho mínimo<br>
+                    4. <strong>Férias estratégicas:</strong> Períodos mais longos sem trabalho</p>
+                </div>
+                
+                <div class="action-box">
+                    <h4><i class="fas fa-tasks"></i> Exercício: Auditória de Energia</h4>
+                    <p>Liste suas atividades atuais e classifique-as em: energizantes (+, ++) ou drenantes (-, --). Crie um plano para aumentar as atividades energizantes e reduzir/minimizar as drenantes.</p>
+                    <button class="btn complete-btn" data-module="4" data-lesson="2">Marcar como concluída</button>
+                </div>
+            </div>
+            
+            <!-- Aula 4.3 -->
+            <div class="lesson">
+                <h3><i class="fas fa-sync-alt"></i> Aula 4.3: Criando seu Ritual de Revisão Semanal <span class="completed" id="mod4-lesson3"><i class="far fa-check-circle"></i></span></h3>
+                <p>Um sistema para ajustar a rota e celebrar vitórias.</p>
+                
+                <div class="key-point">
+                    <h4>O Poder da Revisão Semanal</h4>
+                    <p>A revisão semanal é o hábito que mantém todos os outros hábitos. É o momento de sair da operação e entrar na visão estratégica, ajustando o curso conforme necessário.</p>
+                </div>
+                
+                <div class="key-point">
+                    <h4>Estrutura da Revisão Semanal Eficaz</h4>
+                    <p>1. <strong>Celebração:</strong> Reconheça conquistas e progressos (5 min)<br>
+                    2. <strong>Revisão de métricas:</strong> Analise dados e indicadores (10 min)<br>
+                    3. <strong>Aprendizados:</strong> O que funcionou e o que não funcionou? (10 min)<br>
+                    4. <strong>Ajustes:</strong> Que mudanças são necessárias? (10 min)<br>
+                    5. <strong>Planejamento:</strong> Define as prioridades da semana seguinte (15 min)</p>
+                </div>
+                
+                <div class="action-box">
+                    <h4><i class="fas fa-tasks"></i> Exercício: Primeira Revisão Semanal</h4>
+                    <p>Agende 50 minutos neste fim de semana para fazer sua primeira revisão semanal completa. Use a estrutura acima e adapte conforme necessário para seu contexto.</p>
+                    <button class="btn complete-btn" data-module="4" data-lesson="3">Marcar como concluída</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Zona de Ação - Todos os direitos reservados © 2023</p>
+        <p>Este material é de uso exclusivo do aluno.</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabLinks = document.querySelectorAll('.tab-link');
+            const tabContents = document.querySelectorAll('.tab-content');
+            const completeButtons = document.querySelectorAll('.complete-btn');
+            const progressBar = document.getElementById('progress-bar');
+            const progressPercentage = document.getElementById('progress-percentage');
+            const completedLessons = document.getElementById('completed-lessons');
+            const totalLessons = document.getElementById('total-lessons');
+            
+            // Configurar o total de lições
+            totalLessons.textContent = document.querySelectorAll('.lesson').length;
+            
+            // Inicializar o progresso salvo
+            let progress = JSON.parse(localStorage.getItem('courseProgress')) || {};
+            updateProgress();
+            
+            // Configurar navegação por abas
+            tabLinks.forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all tabs
+                    tabLinks.forEach(function(tab) {
+                        tab.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Hide all tab contents
+                    tabContents.forEach(function(content) {
+                        content.classList.remove('active');
+                    });
+                    
+                    // Show the corresponding tab content
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Configurar botões de conclusão
+            completeButtons.forEach(function(button) {
+                const module = button.getAttribute('data-module');
+                const lesson = button.getAttribute('data-lesson');
+                const key = `mod${module}-lesson${lesson}`;
+                
+                // Verificar se já está concluído
+                if (progress[key]) {
+                    document.getElementById(key).innerHTML = '<i class="fas fa-check-circle"></i>';
+                }
+                
+                button.addEventListener('click', function() {
+                    progress[key] = true;
+                    localStorage.setItem('courseProgress', JSON.stringify(progress));
+                    document.getElementById(key).innerHTML = '<i class="fas fa-check-circle"></i>';
+                    updateProgress();
+                    
+                    // Feedback visual
+                    button.textContent = 'Concluído!';
+                    button.style.background = '#0ba360';
+                    setTimeout(() => {
+                        button.textContent = 'Marcar como concluída';
+                        button.style.background = '';
+                    }, 1500);
+                });
+            });
+            
+            // Atualizar barra de progresso
+            function updateProgress() {
+                const total = document.querySelectorAll('.lesson').length;
+                let completed = 0;
+                
+                for (const key in progress) {
+                    if (progress[key]) completed++;
+                }
+                
+                const percentage = Math.round((completed / total) * 100);
+                progressBar.style.width = `${percentage}%`;
+                progressPercentage.textContent = `${percentage}%`;
+                completedLessons.textContent = completed;
+                
+                // Atualizar contagem de lições concluídas
+                document.querySelectorAll('.completed i').forEach(icon => {
+                    icon.className = 'far fa-check-circle';
+                });
+                
+                for (const key in progress) {
+                    if (progress[key] && document.getElementById(key)) {
+                        document.getElementById(key).innerHTML = '<i class="fas fa-check-circle"></i>';
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
