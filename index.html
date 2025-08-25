@@ -16,7 +16,7 @@
         body {
             background-color: #f5f7fa;
             color: #333;
-            line-height: 1.6;
+            line-height: 1.6;F
             padding: 20px;
             max-width: 1200px;
             margin: 0 auto;
@@ -883,32 +883,39 @@
                 });
             });
             
-            // Configurar botões de conclusão
-            completeButtons.forEach(function(button) {
-                const module = button.getAttribute('data-module');
-                const lesson = button.getAttribute('data-lesson');
-                const key = `mod${module}-lesson${lesson}`;
-                
-                // Verificar se já está concluído
-                if (progress[key]) {
-                    document.getElementById(key).innerHTML = '<i class="fas fa-check-circle"></i>';
-                }
-                
-                button.addEventListener('click', function() {
-                    progress[key] = true;
-                    localStorage.setItem('courseProgress', JSON.stringify(progress));
-                    document.getElementById(key).innerHTML = '<i class="fas fa-check-circle"></i>';
-                    updateProgress();
-                    
-                    // Feedback visual
-                    button.textContent = 'Concluído!';
-                    button.style.background = '#0ba360';
-                    setTimeout(() => {
-                        button.textContent = 'Marcar como concluída';
-                        button.style.background = '';
-                    }, 1500);
-                });
-            });
+            /// Configurar botões de conclusão
+completeButtons.forEach(function(button) {
+    const module = button.getAttribute('data-module');
+    const lesson = button.getAttribute('data-lesson');
+    const key = `mod${module}-lesson${lesson}`;
+    
+    // Verificar se já está concluído e atualizar visual
+    if (progress[key]) {
+        document.getElementById(key).innerHTML = '<i class="fas fa-check-circle"></i>';
+        button.textContent = 'Concluído!';
+        button.style.background = '#0ba360';
+    } else {
+        document.getElementById(key).innerHTML = '<i class="far fa-check-circle"></i>';
+        button.textContent = 'Marcar como concluída';
+        button.style.background = '';
+    }
+    
+    button.addEventListener('click', function() {
+        progress[key] = !progress[key]; // Alterna entre true/false
+        localStorage.setItem('courseProgress', JSON.stringify(progress));
+        
+        // Atualizar ícone
+        document.getElementById(key).innerHTML = progress[key] ? 
+            '<i class="fas fa-check-circle"></i>' : 
+            '<i class="far fa-check-circle"></i>';
+        
+        // Atualizar botão
+        button.textContent = progress[key] ? 'Concluído!' : 'Marcar como concluída';
+        button.style.background = progress[key] ? '#0ba360' : '';
+        
+        updateProgress();
+    });
+});
             
             // Atualizar barra de progresso
             function updateProgress() {
